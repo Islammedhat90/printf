@@ -39,18 +39,20 @@ int print_d(double d)
   * Return: number of bytes printed.
   */
 
-int print_i(signed int i)
+int print_i(int i)
 {
 	int count = 0;
 	int j = 0;
-	signed int n = i;
+	unsigned int n;
 	char s[10];
 
 	if (i < 0)
 	{
 		count += _putchar('-');
-		n = n * -1;
+		n = -i;
 	}
+	else
+		n = i;
 	while (n > 9)
 	{
 		s[j] = (n % 10) + '0';
@@ -113,7 +115,7 @@ int get_specifier(char s, va_list str)
 				count = print_i(va_arg(str, int));
 				break;
 			case 'i':
-				count = print_i(va_arg(str, signed int));
+				count = print_i(va_arg(str, int));
 				break;
 			case '%':
 				count = _putchar('%');
