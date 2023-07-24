@@ -10,8 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list str;
-	char *s;
-	int i, len, count = 0;
+	int i, j, len, count = 0;
 
 	va_start(str, format);
 	if (format == NULL || (format[0] == '%' && _strlen((char *)format) == 1))
@@ -19,38 +18,21 @@ int _printf(const char *format, ...)
 	len = _strlen((char *)format);
 	for (i = 0; i < len; i++)
 	{
-		if (format[i] != '%')
-			count += _putchar(format[i]);
-		else
+		if (format[i])
 		{
-			if (format[i + 1])
+			if (format[i] != '%')
+				count += _putchar(format[i]);
+			else
 			{
-				i++;
-				switch (format[i])
+				if (format[i + 1] == '\0')
+					return (count);
+				j = get_specifier(format[i + 1], str);
+				if (j != -1)
 				{
-					case 'c':
-						count += _putchar(va_arg(str, int));
-						break;
-					case 's':
-						s = va_arg(str, char *);
-						count += write(1, s, _strlen(s));
-						break;
-					case '%':
-						count += _putchar('%');
-						break;
-					default:
-						if (format[i + 1])
-						{
-							count += _putchar('%');
-							i--;
-							break;
-						}
-						else
-							return (count);
+					count += j;
+					i++;
 				}
 			}
-			else
-				return (count);
 		}
 	}
 	va_end(str);
