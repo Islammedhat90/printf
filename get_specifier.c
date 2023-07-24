@@ -41,9 +41,20 @@ int print_d(double d)
 
 int print_i(int i)
 {
-	int d = i + 1;
+	int count = 0;
 
-	return (d);
+	if (i < 0)
+	{
+		count += _putchar('-');
+		i = i * -1;
+	}
+	while (i > 9)
+	{
+		count += _putchar((i % 10) + '0');
+		i = i / 10;
+	}
+	count += _putchar(i + '0');
+	return (count);
 }
 /**
   * get_specifier - converts specifier
