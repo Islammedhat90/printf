@@ -11,8 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list str;
 	char *s;
-	int i, j;
-	int len, count = 0;
+	int i, len, count = 0;
 
 	va_start(str, format);
 	if (format == NULL || (format[0] == '%' && _strlen((char *)format) == 1))
@@ -47,4 +46,5 @@ int _printf(const char *format, ...)
 				return (-1);
 		}
 	}
+	return (count);
 }
