@@ -89,6 +89,7 @@ int get_specifier(char s, va_list str)
 				count = _putchar('%');
 				break;
 			default:
+				_putchar("%");
 				return (-1);
 		}
 		return (count);
