@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 				count += _putchar(format[i]);
 			else
 			{
+				while (format[i + 1] != ' ')
+					i++;
 				if (format[i + 1] == '\0')
 					return (-1);
 				j = get_specifier(format[i + 1], str);
@@ -31,7 +33,10 @@ int _printf(const char *format, ...)
 				{
 					count += j;
 					i++;
+					continue;
 				}
+				else
+					return (j);
 			}
 		}
 	}
