@@ -28,6 +28,7 @@ int print_string(va_list str)
 int print_d(double d)
 {
 	int i = (int)d + 1;
+
 	return (i);
 }
 
@@ -41,6 +42,7 @@ int print_d(double d)
 int print_i(int i)
 {
 	int d = i + 1;
+
 	return (d);
 }
 /**
