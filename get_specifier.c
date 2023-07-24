@@ -57,7 +57,6 @@ int print_i(int i)
 		j++;
 	}
 	s[j] = i + '0';
-	j++;
 	for (; j >= 0; j--)
 		count += _putchar(s[j]);
 	return (count);
