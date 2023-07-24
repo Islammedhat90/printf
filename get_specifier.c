@@ -65,7 +65,7 @@ int print_i(int i)
   * print_bin - prints int to binary form
   *@i: int to print.
   *
-  * Return: number of bytes printed.
+  * Return: number of bytes printed.otherwise -1 if fails.
   */
 
 int print_bin(unsigned int i)
@@ -73,7 +73,10 @@ int print_bin(unsigned int i)
 	unsigned int n = i;
 	int count = 0;
 	int j = 0;
-	char s[10];
+	char *s = malloc(sizeof(char) * 10);
+
+	if (s == NULL)
+		return (-1);
 
 	while (n != 0)
 	{
@@ -84,6 +87,7 @@ int print_bin(unsigned int i)
 	s[j] = n + '0';
 	for (; j >= 0; j--)
 		count += _putchar(s[j]);
+	free(s);
 	return (count);
 }
 /**
