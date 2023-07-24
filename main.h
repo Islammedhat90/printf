@@ -8,11 +8,6 @@
 #include <unistd.h>
 
 
-typedef struct specifier
-{
-	char s;
-	int (*func)();
-}sp_f;
 
 int _putchar(char c);
 int _strlen(char *s);
