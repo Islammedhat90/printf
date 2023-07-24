@@ -61,6 +61,32 @@ int print_i(int i)
 		count += _putchar(s[j]);
 	return (count);
 }
+
+/**
+  * print_bin - prints int to binary form
+  *@i: int to print.
+  *
+  * Return: number of bytes printed.
+  */
+
+int print_bin(int i)
+{
+	unsigned int n = i;
+	int count = 0;
+	int j = 0;
+	char s[10];
+
+	while (n != 0)
+	{
+		s[j] = (n % 2) + '0';
+		n = n / 2;
+		j++;
+	}
+	s[j] = n + '0';
+	for (; j >= 0; j--)
+		count += _putchar(s[j]);
+	return (count);
+}
 /**
   * get_specifier - converts specifier
   *@s: char to convert.
@@ -87,6 +113,9 @@ int get_specifier(char s, va_list str)
 				break;
 			case '%':
 				count = _putchar('%');
+				break;
+			case 'b':
+				count = print_bin(va_arg(str, int));
 				break;
 			default:
 				return (-1);
