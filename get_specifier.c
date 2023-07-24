@@ -39,20 +39,20 @@ int print_d(double d)
   * Return: number of bytes printed.
   */
 
-int print_i(int i)
+int print_i(va_list str)
 {
 	int count = 0;
 	int j = 0;
-	unsigned int n;
+	signed int n = (signed int)va_arg(str, int);
 	char s[10];
 
 	if (i < 0)
 	{
-		count += _putchar('-');
-		n = -i;
+		count += write(1, "-", 1);
+		n = -n;
 	}
 	else
-		n = i;
+	{
 	while (n > 9)
 	{
 		s[j] = (n % 10) + '0';
@@ -60,7 +60,8 @@ int print_i(int i)
 		j++;
 	}
 	for (; j >= 0; j--)
-		count += _putchar(s[j]);
+		count += write(1, &s[j], 1);
+	}
 	return (count);
 }
 
@@ -71,9 +72,9 @@ int print_i(int i)
   * Return: number of bytes printed.otherwise -1 if fails.
   */
 
-int print_bin(unsigned int i)
+int print_bin(va_list str)
 {
-	unsigned int n = i;
+	unsigned int n = va_arg(str, unsigned int);
 	int count = 0;
 	int j = 0;
 	char *s = malloc(sizeof(char) * 10);
@@ -89,7 +90,7 @@ int print_bin(unsigned int i)
 	}
 	s[j] = n + '0';
 	for (; j >= 0; j--)
-		count += _putchar(s[j]);
+		count += write(1, &s[j], 1);
 	free(s);
 	return (count);
 }
@@ -102,6 +103,7 @@ int print_bin(unsigned int i)
 int get_specifier(char s, va_list str)
 {
 	int count = 0;
+	char c;
 
 		switch (s)
 		{
@@ -109,19 +111,20 @@ int get_specifier(char s, va_list str)
 				count = print_string(str);
 				break;
 			case 'c':
-				count = _putchar(va_arg(str, int));
+				c = va_arg(str, int);
+				count = write(1, &c, 1);
 				break;
 			case 'd':
-				count = print_i(va_arg(str, int));
+				count = print_i(str);
 				break;
 			case 'i':
-				count = print_i(va_arg(str, int));
+				count = print_i(str);
 				break;
 			case '%':
-				count = _putchar('%');
+				count = write(1, "%", 1);
 				break;
 			case 'b':
-				count = print_bin(va_arg(str, unsigned int));
+				count = print_bin(str);
 				break;
 			default:
 				return (-1);
