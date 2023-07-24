@@ -16,6 +16,6 @@ int get_specifier(char s, va_list str);
 int print_d(double d);
 int print_i(int i);
 int print_string(va_list str);
-int print_bin(unsigned int);
+int print_bin(int i);
 
 #endif

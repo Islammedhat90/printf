@@ -43,10 +43,10 @@ int print_i(int i)
 {
 	int count = 0;
 	int j = 0;
-	unsigned int n = i;
+	signed int n = i;
 	char s[10];
 
-	if (i < 0)
+	if (n < 0)
 	{
 		count += _putchar('-');
 		n = n * -1;
@@ -69,7 +69,7 @@ int print_i(int i)
   * Return: number of bytes printed.otherwise -1 if fails.
   */
 
-int print_bin(unsigned int i)
+int print_bin(int i)
 {
 	unsigned int n = i;
 	int count = 0;
