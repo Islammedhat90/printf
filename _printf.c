@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list str;
+	char *s;
 	int i, j, len, count = 0;
 
 	va_start(str, format);
@@ -26,7 +27,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == '\0')
 					return (-1);
-				j = get_specifier(format[i + 1], str);
+				j = get_specifier(format[i + 1], str)
 				if (j != -1)
 				{
 					count += j;
