@@ -69,7 +69,7 @@ int print_i(int i)
   * Return: number of bytes printed.
   */
 
-int print_bin(int i)
+int print_bin(unsigned int i)
 {
 	unsigned int n = i;
 	int count = 0;
@@ -115,7 +115,7 @@ int get_specifier(char s, va_list str)
 				count = _putchar('%');
 				break;
 			case 'b':
-				count = print_bin(va_arg(str, int));
+				count = print_bin(va_arg(str, unsigned int));
 				break;
 			default:
 				return (-1);
