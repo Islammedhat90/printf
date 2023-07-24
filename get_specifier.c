@@ -42,6 +42,8 @@ int print_d(double d)
 int print_i(int i)
 {
 	int count = 0;
+	int j = 0;
+	char s[10];
 
 	if (i < 0)
 	{
@@ -50,10 +52,14 @@ int print_i(int i)
 	}
 	while (i > 9)
 	{
-		count += _putchar((i % 10) + '0');
+		s[j] = (i % 10) + '0';
 		i = i / 10;
+		j++;
 	}
-	count += _putchar(i + '0');
+	s[j] = i + '0';
+	j++;
+	for (; j >= 0; j--)
+		count += _putchar(s[j]);
 	return (count);
 }
 /**
@@ -75,7 +81,7 @@ int get_specifier(char s, va_list str)
 				count = _putchar(va_arg(str, int));
 				break;
 			case 'd':
-				count = print_d(va_arg(str, double));
+				count = print_i(va_arg(str, int));
 				break;
 			case 'i':
 				count = print_i(va_arg(str, int));
