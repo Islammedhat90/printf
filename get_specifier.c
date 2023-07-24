@@ -34,7 +34,7 @@ int print_d(double d)
 
 /**
   * print_i - prints an integer
-  *@i: integer to print.
+  *@str: argument.
   *
   * Return: number of bytes printed.
   */
@@ -43,13 +43,14 @@ int print_i(va_list str)
 {
 	int count = 0;
 	int j = 0;
-	signed int n = (signed int)va_arg(str, int);
+	int i = va_arg(str, int);
+	unsigned int n;
 	char s[10];
 
-	if (n < 0)
+	if (i < 0)
 	{
 		count += write(1, "-", 1);
-		n = -n;
+		n = -i;
 	}
 	while (n > 9)
 	{
@@ -64,7 +65,7 @@ int print_i(va_list str)
 
 /**
   * print_bin - prints int to binary form
-  *@i: int to print.
+  *@str: argument.
   *
   * Return: number of bytes printed.otherwise -1 if fails.
   */
