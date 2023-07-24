@@ -43,17 +43,18 @@ int print_i(int i)
 {
 	int count = 0;
 	int j = 0;
+	unsigned int n = i;
 	char s[10];
 
 	if (i < 0)
 	{
 		count += _putchar('-');
-		i = i * -1;
+		n = n * -1;
 	}
-	while (i > 9)
+	while (n > 9)
 	{
-		s[j] = (i % 10) + '0';
-		i = i / 10;
+		s[j] = (n % 10) + '0';
+		n = n / 10;
 		j++;
 	}
 	for (; j >= 0; j--)
