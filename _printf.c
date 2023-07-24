@@ -39,11 +39,18 @@ int _printf(const char *format, ...)
 						count += _putchar('%');
 						break;
 					default:
-						return (-1);
+						if (format[i + 1])
+						{
+							count += _putchar('%');
+							i--;
+							break;
+						}
+						else
+							return (count);
 				}
 			}
 			else
-				return (-1);
+				return (count);
 		}
 	}
 	va_end(str);
