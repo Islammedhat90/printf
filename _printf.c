@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (format[i + 1] == '\0')
-					return (count);
+					return (-1);
 				j = get_specifier(format[i + 1], str);
 				if (j != -1)
 				{
