@@ -46,13 +46,11 @@ int print_i(va_list str)
 	signed int n = (signed int)va_arg(str, int);
 	char s[10];
 
-	if (i < 0)
+	if (n < 0)
 	{
 		count += write(1, "-", 1);
 		n = -n;
 	}
-	else
-	{
 	while (n > 9)
 	{
 		s[j] = (n % 10) + '0';
@@ -61,7 +59,6 @@ int print_i(va_list str)
 	}
 	for (; j >= 0; j--)
 		count += write(1, &s[j], 1);
-	}
 	return (count);
 }
 
