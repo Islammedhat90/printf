@@ -17,6 +17,7 @@ int print_i(va_list str);
 int print_string(va_list str);
 int print_bin(va_list str);
 int reverse_print (va_list arg);
+int string_rot13(va_list ap);
 int _putchar(char c);
 
 /* Other functions */
