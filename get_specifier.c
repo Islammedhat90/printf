@@ -125,7 +125,8 @@ int get_specifier(char s, va_list str)
 				count = print_bin(str);
 				break;
 			default:
-				return (-1);
+				count = _putchar('%');
+				break;
 		}
 		return (count);
 }
