@@ -16,5 +16,11 @@ int print_d(double d);
 int print_i(va_list str);
 int print_string(va_list str);
 int print_bin(va_list str);
+int reverse_print (va_list arg);
+int _putchar(char c);
+
+/* Other functions */
+char *string_rev(char *s);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 #endif
