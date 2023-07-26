@@ -43,7 +43,7 @@ int print_i(va_list str)
 {
 	int count = 0;
 	int j = 0;
-	int n = va_arg(str, int);
+	long int n = va_arg(str, int);
 	char s[10];
 
 	if (n < 0)
