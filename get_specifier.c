@@ -127,6 +127,8 @@ int get_specifier(char s, va_list str)
 			case 'b':
 				count = print_bin(str);
 				break;
+			case 'x':
+				count = print_hex(list);
 			case 'R':
 				count = string_rot13(str);
 				break;
