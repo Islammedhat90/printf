@@ -130,7 +130,7 @@ int get_specifier(char s, va_list str)
 				count = reverse_print(str);
 				break;
 			default:
-				count = _putchar(s);
+				count = _putchar('%') + _putchar(s);
 				break;
 		}
 		return (count);
