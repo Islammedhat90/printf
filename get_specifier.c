@@ -86,7 +86,7 @@ int print_bin(va_list str)
 		j++;
 	}
 	s[j] = n + '0';
-	for (; j >= 0; j--)
+	for (j = j - 1; j >= 0; j--)
 		count += write(1, &s[j], 1);
 	free(s);
 	return (count);
