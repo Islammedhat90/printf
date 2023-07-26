@@ -46,6 +46,8 @@ int print_i(va_list str)
 	long int n = va_arg(str, int);
 	char s[10];
 
+	if (n == 0)
+		return (_putchar('0');
 	if (n < 0)
 	{
 		count += write(1, "-", 1);
