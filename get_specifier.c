@@ -80,6 +80,8 @@ int print_bin(va_list str)
 
 	if (s == NULL)
 		return (-1);
+	if (n == 0)
+		return (_putchar(0 + '0'));
 
 	while (n != 0)
 	{
