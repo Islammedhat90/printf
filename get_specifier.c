@@ -47,7 +47,7 @@ int print_i(va_list str)
 	char s[10];
 
 	if (n == 0)
-		return (_putchar('0');
+		return (_putchar('0'));
 	if (n < 0)
 	{
 		count += write(1, "-", 1);
