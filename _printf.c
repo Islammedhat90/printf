@@ -24,14 +24,11 @@ int _printf(const char *format, ...)
 				count += write(1, &format[i], 1);
 			else
 			{
-				if (format[i + 1] == '\0')
+				if (format[i + 1] == '\0' || format[i + 1] == ' ')
 					return (-1);
 				j = get_specifier(format[i + 1], str);
-				if (j != -1)
-				{
-					count += j;
-					i++;
-				}
+				count += j;
+				i++;
 			}
 		}
 	}

@@ -43,23 +43,24 @@ int print_i(va_list str)
 {
 	int count = 0;
 	int j = 0;
-	int i = va_arg(str, int);
-	unsigned int n;
+	long int n = va_arg(str, int);
 	char s[10];
 
-	if (i < 0)
+	if (n == 0)
+		return (_putchar(0 + '0'));
+	if (n < 0)
 	{
 		count += write(1, "-", 1);
-		n = -i;
+		n = -n;
 	}
-	while (n > 9)
+	while (n > 0)
 	{
 		s[j] = (n % 10) + '0';
 		n = n / 10;
 		j++;
 	}
-	for (; j >= 0; j--)
-		count += write(1, &s[j], 1);
+	for (j = j - 1; j >= 0; j--)
+		count += _putchar(s[j]);
 	return (count);
 }
 
@@ -79,6 +80,8 @@ int print_bin(va_list str)
 
 	if (s == NULL)
 		return (-1);
+	if (n == 0)
+		return (_putchar(0 + '0'));
 
 	while (n != 0)
 	{
@@ -87,7 +90,7 @@ int print_bin(va_list str)
 		j++;
 	}
 	s[j] = n + '0';
-	for (; j >= 0; j--)
+	for (j = j - 1; j >= 0; j--)
 		count += write(1, &s[j], 1);
 	free(s);
 	return (count);
@@ -126,9 +129,15 @@ int get_specifier(char s, va_list str)
 				break;
 			case 'x':
 				count = print_hex(list);
+			case 'R':
+				count = string_rot13(str);
+				break;
+			case 'r':
+				count = reverse_print(str);
 				break;
 			default:
-				return (-1);
+				count = _putchar('%') + _putchar(s);
+				break;
 		}
 		return (count);
 }
