@@ -34,11 +34,14 @@ int string_rot13(va_list ap);
 int _putchar(char c);
 int hex_check(int, char);
 int print_hex(va_list list);
+int print_address(va_list l, flags_s *f);
+int get_flag(char s, flags_s *f);
 
 /* Other functions */
 char *string_rev(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
 unsigned int base_len(unsigned int num, int base);
 void write_base(char *s);
+char *convert(unsigned long int num, int base, int lowercase);
 
 #endif
