@@ -43,23 +43,22 @@ int print_i(va_list str)
 {
 	int count = 0;
 	int j = 0;
-	int i = va_arg(str, int);
-	unsigned int n;
+	int n = va_arg(str, int);
 	char s[10];
 
-	if (i < 0)
+	if (n < 0)
 	{
 		count += write(1, "-", 1);
-		n = -i;
+		n = -n;
 	}
-	while (n > 9)
+	while (n > 0)
 	{
 		s[j] = (n % 10) + '0';
 		n = n / 10;
 		j++;
 	}
-	for (; j >= 0; j--)
-		count += write(1, &s[j], 1);
+	for (j = j - 1; j >= 0; j--)
+		count += _putchar(s[j]);
 	return (count);
 }
 

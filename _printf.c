@@ -28,6 +28,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				j = get_specifier(format[i + 1], str);
 				count += j;
+				i++;
 			}
 		}
 	}
