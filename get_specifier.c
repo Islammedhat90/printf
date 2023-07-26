@@ -124,6 +124,8 @@ int get_specifier(char s, va_list str)
 			case 'b':
 				count = print_bin(str);
 				break;
+			case 'x':
+				count = print_hex(list);
 			default:
 				return (-1);
 		}

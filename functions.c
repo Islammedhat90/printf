@@ -48,3 +48,34 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	dest[i] = '\0';
 	return (dest);
 }
+
+
+/**
+ * base_len - Calculates the length of an octal number
+ * @num: the number to be calculated
+ * @base: the base to be used
+ * Return: the length of the number
+ */
+unsigned int base_len(unsigned int num, int base)
+{
+	unsigned int i;
+
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
+}
+
+
+/**
+ * write_base - sends characters to be written on standard output
+ * @s: the string to be computed
+ */
+void write_base(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		_putchar(s[i]);
+}
