@@ -129,11 +129,15 @@ int get_specifier(char s, va_list str)
 				break;
 			case 'x':
 				count = print_hex(list);
+				break;
 			case 'R':
 				count = string_rot13(str);
 				break;
 			case 'r':
 				count = reverse_print(str);
+				break;
+			case 'p':
+				count = p_address(str);
 				break;
 			default:
 				count = _putchar('%') + _putchar(s);
