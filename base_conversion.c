@@ -1,7 +1,9 @@
 #include "main.h"
 
-int hex_check(int, char);
-
+int hex_check(__attribute__ ((unused))int i, __attribute__ ((unused))char c)
+{
+	return (1);
+}
 /**
  * print_hex - prints a number to base16 lowercase
  * @list: List of the arguments passed to the function
