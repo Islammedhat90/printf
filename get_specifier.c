@@ -113,7 +113,7 @@ int get_specifier(char s, va_list str)
 				break;
 			case 'c':
 				c = va_arg(str, int);
-				count = write(1, &c, 1);
+				count = _putchar(c);
 				break;
 			case 'd':
 				count = print_i(str);
