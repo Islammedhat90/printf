@@ -34,7 +34,7 @@ int string_rot13(va_list ap);
 int _putchar(char c);
 int hex_check(int, char);
 int print_hex(va_list list);
-int print_address(va_list l, flags_s *f);
+int p_address(va_list l, flags_s *f);
 int get_flag(char s, flags_s *f);
 
 /* Other functions */
